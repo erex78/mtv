@@ -194,6 +194,52 @@ $(document).ready(function() {
             .addClass("popup-last-update-" + last_update.action)
             .text(action_html[last_update.action]));
 
+
+
+    //boxzoom interaction
+    context.map.on('boxzoomend', function(event){
+
+      if (map.getZoom()<12){return;}
+
+      var ne_point = map.project(event.boxZoomBounds._ne);
+      var sw_point = map.project(event.boxZoomBounds._sw);
+      var box = [ne_point, sw_point];
+
+      var features = map.queryRenderedFeatures(box, {
+        layers: ['prospect_circles']
+      });
+      var fLength = features.length;
+      if (fLength == 0){
+        return;
+      }
+
+      var overlay = document.getElementById('map-overlay');
+      overlay.style.zIndex = 10; 
+      overlay.innerHTML = "<img id='close-button' src='x-symbol.svg'> <div id='overlayRows'>";
+      overlay.innerHTML += "<button id='copy-button'>Copy</button>";
+      var closeButton = document.getElementById("close-button")
+      closeButton.addEventListener("click", function(event){
+        overlay.style.zIndex = -10; 
+        overlay.innerHTML = ""
+      })
+      var button = document.getElementById("copy-button");
+      var overlayRows = document.getElementById('overlayRows')
+    
+      button.addEventListener("click", function (event) {
+         navigator.clipboard.writeText(overlayRows.innerText)
+      });
+      
+
+      var addresses = []; 
+      for (var i=0; i<fLength; i++){
+        addresses[i] = features[i].properties.address;
+        overlayRows.innerHTML += ' <a href="https://www.google.com/maps/search/?api=1&map_action=pano&query=' + (addresses[i].split(" ").join("+")).toString() + '" target="_blank">' + addresses[i] +
+        '</a></br>'
+      }
+      console.log(addresses); 
+    })
+
+
     function on_action_click(event) {
       $(event.target).addClass('popup-action-selected');
       $.post('mapthevote_data', JSON.stringify(event.data))
