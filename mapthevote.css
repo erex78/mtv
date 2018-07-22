@@ -1,0 +1,44 @@
+body {margin: 0; padding: 0;}
+#main {position: absolute; top: 0; bottom: 0; width: 100%;}
+
+.popup-title {
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.popup-register {
+  background-color: #88ccff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  margin: 0 0 5px 0;
+  display: block;
+}
+
+.popup-register img {width: 200px; display: block;}
+
+.popup-last-update {font-weight: bold;}
+.popup-last-update-time {color: #888888;}
+.popup-last-update-none {color: #888888;}
+.popup-last-update-filled {color: #00cc00;}
+.popup-last-update-nothome {color: #880000;}
+.popup-last-update-already {color: #bb66bb;}
+.popup-last-update-refused {color: #000000;}
+
+.popup-action {
+  background-color: #dddddd;
+  font-size: 125%;
+  letter-spacing: 0.5px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  margin: 5px 0 0;
+  cursor: pointer;
+}
+
+.popup-action-selected {
+  background-color: #99ddff;
+}
+
+.popup-footnote {
+  margin: 5px 0 -5px 0;
+  color: #888888;
+}
