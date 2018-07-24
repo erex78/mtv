@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     map = context.map = new mapboxgl.Map({
       container: document.getElementById('main'),
-      style: 'mapbox://styles/mapbox/streets-v9',
+      style: 'mapbox://styles/mapbox/dark-v9',
       hash: true,
       center: [-97.573, 31.015],
       zoom: 7
