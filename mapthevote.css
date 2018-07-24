@@ -42,3 +42,48 @@ body {margin: 0; padding: 0;}
   margin: 5px 0 -5px 0;
   color: #888888;
 }
+
+
+#map-overlay {
+    font: 12px/20px 'Roboto', sans-serif;
+    position: absolute;
+    width: 220px;
+    top: 10px;
+    left: 10px;
+    z-index: 0;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow:0 5px 10px rgba(0, 0, 0, 0.20);
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 10px;
+    min-height: 50px;
+
+    max-height: 80%; 
+    overflow: scroll; 
+}
+#copy-button{
+    float: right;
+    border: none;
+    background-color: #1299d2;
+    color: #f1f1f1;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding: 5px 7px 5px 7px;
+    border-radius: 3px;
+    cursor: pointer; 
+    font: 'Roboto';
+}
+
+#copy-button:hover{
+  background-color: #40abd8;
+}
+#close-button{
+  height: 10px;
+  right: 10px;
+  position: absolute;
+  cursor: pointer; 
+}
+a:link {color: #505050;}
+a:visited {color: #505050;}
+a:hover {color: darkgrey;}
